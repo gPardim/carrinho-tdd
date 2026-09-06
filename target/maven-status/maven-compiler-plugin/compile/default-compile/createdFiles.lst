@@ -1,3 +1,4 @@
+carrinho/exceptions/CupomInvalidoException.class
 carrinho/Produto.class
 carrinho/exceptions/CarrinhoVazioException.class
 carrinho/ItemCarrinho.class
