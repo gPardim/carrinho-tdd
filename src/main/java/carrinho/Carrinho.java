@@ -2,6 +2,7 @@ package carrinho;
 
 import carrinho.exceptions.EstoqueInsuficienteException;
 import carrinho.exceptions.CupomJaAplicadoException;
+import carrinho.exceptions.CarrinhoVazioException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,13 @@ public class Carrinho {
                 if (quantidade > produto.getEstoque()) {
                         throw new EstoqueInsuficienteException(
                                 "Estoque insuficiente para o produto " + produto.getNome() + ".");
+                }
+        }
+
+        public void finalizarCompra() throws CarrinhoVazioException {
+                if (itens.isEmpty()) {
+                        throw new CarrinhoVazioException(
+                                "Nao e possivel finalizar a compra de um carrinho vazio.");
                 }
         }
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

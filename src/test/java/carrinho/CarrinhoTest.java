@@ -2,6 +2,8 @@ package carrinho;
 
 import carrinho.exceptions.CupomJaAplicadoException;
 import carrinho.exceptions.EstoqueInsuficienteException;
+import carrinho.exceptions.CarrinhoVazioException;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -66,5 +68,12 @@ class CarrinhoTest {
 
         assertThrows(CupomJaAplicadoException.class,
         () -> carrinho.aplicarCupom(cupom));
+    }
+
+    @Test
+    void deveLancarExcecaoAoFinalizarCompraComCarrinhoVazio() {
+        Carrinho carrinho = new Carrinho();
+
+        assertThrows(CarrinhoVazioException.class, carrinho::finalizarCompra);
     }
 }
