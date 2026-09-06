@@ -23,12 +23,25 @@ class CarrinhoTest {
         assertEquals(7.50, carrinho.calcularTotal());
     }
 
-        @Test
-            void deveLancarExcecaoAoAdicionarQuantidadeMaiorQueEstoque() {
-                    Carrinho carrinho = new Carrinho();
-                            Produto produto = new Produto("Caneta", 2.50, 5);
+    @Test
+    void deveLancarExcecaoAoAdicionarQuantidadeMaiorQueEstoque() {
+        Carrinho carrinho = new Carrinho();
+        Produto produto = new Produto("Caneta", 2.50, 5);
 
-                                    assertThrows(EstoqueInsuficienteException.class,
-                                                    () -> carrinho.adicionarItem(produto, 6));
-                                                        }
+        assertThrows(EstoqueInsuficienteException.class,
+        () -> carrinho.adicionarItem(produto, 6));
+    }
+
+    @Test
+    void deveReduzirTotalAoRemoverItem() throws Exception {
+        Carrinho carrinho = new Carrinho();
+        Produto produto = new Produto("Caneta", 2.50, 10);
+        carrinho.adicionarItem(produto, 3);
+
+        carrinho.removerItem(produto);
+
+        assertEquals(0.0, carrinho.calcularTotal());
+    }
+
+    
 }
