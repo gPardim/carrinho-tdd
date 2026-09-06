@@ -1,5 +1,6 @@
 package carrinho;
 
+import carrinho.exceptions.CupomJaAplicadoException;
 import carrinho.exceptions.EstoqueInsuficienteException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -53,5 +54,17 @@ class CarrinhoTest {
         carrinho.aplicarCupom(cupom);
 
         assertEquals(18.0, carrinho.calcularTotal());
+    }
+
+    @Test
+    void deveLancarExcecaoAoAplicarMesmoCupomDuasVezes() throws Exception {
+        Carrinho carrinho = new Carrinho();
+        Produto produto = new Produto("Caneta", 10.00, 10);
+        carrinho.adicionarItem(produto, 2);
+        Cupom cupom = new Cupom("DESCONTO10", 10.0);
+        carrinho.aplicarCupom(cupom);
+
+        assertThrows(CupomJaAplicadoException.class,
+        () -> carrinho.aplicarCupom(cupom));
     }
 }

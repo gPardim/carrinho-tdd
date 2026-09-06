@@ -2,4 +2,5 @@
 /workspaces/carrinho-tdd/src/main/java/carrinho/Cupom.java
 /workspaces/carrinho-tdd/src/main/java/carrinho/ItemCarrinho.java
 /workspaces/carrinho-tdd/src/main/java/carrinho/Produto.java
+/workspaces/carrinho-tdd/src/main/java/carrinho/exceptions/CupomJaAplicadoException.java
 /workspaces/carrinho-tdd/src/main/java/carrinho/exceptions/EstoqueInsuficienteException.java
