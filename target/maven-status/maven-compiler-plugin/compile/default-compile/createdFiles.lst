@@ -2,3 +2,4 @@ carrinho/ItemCarrinho.class
 carrinho/Carrinho.class
 carrinho/exceptions/EstoqueInsuficienteException.class
 carrinho/Produto.class
+carrinho/Cupom.class
